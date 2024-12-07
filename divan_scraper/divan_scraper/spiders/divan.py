@@ -14,7 +14,7 @@ class DivanSpider(scrapy.Spider):
         for product in products:
             yield {
                 'name': product.xpath('.//a[contains(@class, "ProductName")]/span/text()').get(),
-                'price': product.xpath('.//span[contains(@class, "price")]/text()').get(),
+                'price': product.xpath('.//span[@class="ui-LD-ZU KIkOH" and @data-testid="price"]/text()').get(),
                 'link': response.urljoin(product.xpath('.//a[contains(@class, "ProductName")]/@href').get()),
             }
 
